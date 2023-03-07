@@ -88,6 +88,7 @@ def sendTweet():
         greetings.extend([
             'At the low floor price of 10 MATIC, how could you pass it up?\n',
             'Make sure to check out the sister collection #NuclearSnowflakeZNFT !\n',
+            'GIF me a break, GIF me a break, break me off a piece of that Rainbow Snowflake!\n',
             ])
 
     if collection == nuclear:
@@ -96,6 +97,7 @@ def sendTweet():
         greetings.extend([
             'At the low floor price of 5.5 MATIC, how could you pass it up?\n',
             'Make sure to check out the sister collection #RainbowSnowflakeZNFT !\n',
+            'GIF me a break, GIF me a break, break me off a piece of that Nuclear Snowflake!\n',
             ])
     
     payload = {
