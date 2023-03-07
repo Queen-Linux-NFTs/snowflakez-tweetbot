@@ -9,7 +9,7 @@ load_dotenv()
 consumer_key = os.environ.get("CONSUMER_KEY")
 consumer_secret = os.environ.get("CONSUMER_SECRET")
 
-greetings = [
+initgreetings = [
     'Plenty of SnowflakeZ for the picking!\n',
     'Find a unique Snowflake for a unique person\n',
     'Real Snowflakes aren\'t unique, but these SnowflakeZ are!\n',
@@ -86,6 +86,7 @@ def sendTweet():
     nuclear = ['https://opensea.io/assets/matic/0x40aff4cf882b28e748ea4bc9d20f587b76157482/','https://rarible.com/token/polygon/0x40aff4cf882b28e748ea4bc9d20f587b76157482:']
     rainbow = ['https://opensea.io/assets/matic/0x90253087c959b77f9b5b003a20cdac46a5e599a3/','https://rarible.com/token/polygon/0x90253087c959b77f9b5b003a20cdac46a5e599a3:']
     collection = random.choice((rainbow,nuclear))
+    greetings = initgreetings
 
     if collection == rainbow:
         hashtags_mentions+="\n#RainbowSnowflakeZNFT"
