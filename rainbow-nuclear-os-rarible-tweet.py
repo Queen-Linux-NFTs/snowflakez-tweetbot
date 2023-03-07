@@ -30,6 +30,11 @@ greetings = [
     'You must buy, You must buy, You must buuuuuy.... SnowflakeZ\n',
     'SnowflakeZ keep falling on my head... Wait, it\'s supposed to be raindrops? Nah :p\n',
     'Shoutout to @opensea and @rarible for making great platforms for people to share and sell their #NFTs :)\n',
+    'As an artist, I have to be thankful for every opportunity. Love you all <3\n',
+    'They hate us, cause they ain\'t us!\n',
+    'GM, GA, or GE to all!\n',
+    'Thinking of the next project...\n',
+    'Fun Fact: SnowflakeZ were made with Python!',
 ]
 
 # Get request token
