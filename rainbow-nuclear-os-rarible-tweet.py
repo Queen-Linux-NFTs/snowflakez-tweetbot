@@ -34,7 +34,7 @@ initgreetings = [
     'They hate us, cause they ain\'t us!\n',
     'GM, GA, or GE to all!\n',
     'Thinking of the next project...\n',
-    'Fun Fact: SnowflakeZ were made with Python!',
+    'Fun Fact: SnowflakeZ were made with Python!\n',
 ]
 
 # Get request token
@@ -68,7 +68,6 @@ oauth = OAuth1Session(
     verifier=verifier,
 )
 oauth_tokens = oauth.fetch_access_token(access_token_url)
-
 access_token = oauth_tokens["oauth_token"]
 access_token_secret = oauth_tokens["oauth_token_secret"]
 
@@ -80,16 +79,15 @@ oauth = OAuth1Session(
     resource_owner_secret=access_token_secret,
 )
 
-
 def sendTweet():
     hashtags_mentions = "#NFT #NFTArt\n#NFTProject"
-    nuclear = ['https://opensea.io/assets/matic/0x40aff4cf882b28e748ea4bc9d20f587b76157482/','https://rarible.com/token/polygon/0x40aff4cf882b28e748ea4bc9d20f587b76157482:']
-    rainbow = ['https://opensea.io/assets/matic/0x90253087c959b77f9b5b003a20cdac46a5e599a3/','https://rarible.com/token/polygon/0x90253087c959b77f9b5b003a20cdac46a5e599a3:']
-    collection = random.choice((rainbow,nuclear))
-    greetings = initgreetings
+    collection = random.choice(['rainbow','nuclear'])
+    greetings=[]
+    greetings=initgreetings
 
-    if collection == rainbow:
+    if collection == 'rainbow':
         hashtags_mentions+="\n#RainbowSnowflakeZNFT"
+        markets = ['https://opensea.io/assets/matic/0x90253087c959b77f9b5b003a20cdac46a5e599a3/','https://rarible.com/token/polygon/0x90253087c959b77f9b5b003a20cdac46a5e599a3:']
         tokenamount=1000
         greetings.extend([
             'At the low floor price of 10 MATIC, how could you pass it up?\n',
@@ -97,8 +95,9 @@ def sendTweet():
             'GIF me a break, GIF me a break, break me off a piece of that Rainbow Snowflake!\n',
             ])
 
-    if collection == nuclear:
+    if collection == 'nuclear':
         hashtags_mentions+="\n#NuclearSnowflakeZNFT"
+        markets = ['https://opensea.io/assets/matic/0x40aff4cf882b28e748ea4bc9d20f587b76157482/','https://rarible.com/token/polygon/0x40aff4cf882b28e748ea4bc9d20f587b76157482:']
         tokenamount=100
         greetings.extend([
             'At the low floor price of 5.5 MATIC, how could you pass it up?\n',
@@ -107,9 +106,8 @@ def sendTweet():
             ])
     
     payload = {
-        "text": random.choice(greetings) + random.choice(collection) + str(random.randint(1,tokenamount)) + "\n" + hashtags_mentions
+        "text": random.choice(greetings)+random.choice(markets)+str(random.randint(1,tokenamount))+"\n"+hashtags_mentions
     }
-
 
     #Making the request
     response = oauth.post(
